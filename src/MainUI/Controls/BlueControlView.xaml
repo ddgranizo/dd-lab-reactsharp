@@ -1,0 +1,24 @@
+<UserControl x:Class="MainUI.Controls.BlueControlView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:vm="clr-namespace:MainUI.Viewmodels"
+        mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
+	<UserControl.Resources>
+        <vm:BlueControlViewModel x:Key="ViewModel" d:IsDataSource="True" />
+    </UserControl.Resources>
+    <Grid x:Name="MainGrid" DataContext="{Binding Source={StaticResource ViewModel}}" Background="Blue">
+        <Grid.Resources>
+            
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Blue control" Grid.Row="0"></TextBlock>
+        <TextBlock Text="{Binding Number,StringFormat='Number: {0}'}" Grid.Row="1"></TextBlock>
+        <TextBlock Text="{Binding PepeName, StringFormat='PepeName: {0}'}" Grid.Row="2"></TextBlock>
+    </Grid>
+</UserControl>
